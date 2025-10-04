@@ -10,7 +10,7 @@ import java.util.Random;
  * Input is presented to the responder as a set of words, and based on those
  * words the responder will generate a String that represents the response.
  *
- * Internally, the reponder uses a HashMap to associate words with response
+ * Internally, the responder uses a HashMap to associate words with response
  * strings and a list of default responses. If any of the input words is found
  * in the HashMap, the corresponding response is returned. If none of the input
  * words is recognized, one of the default responses is randomly chosen.
@@ -54,8 +54,6 @@ public class Responder
         }
         
         // If we get here, none of the words from the input line was recognized.
-        // In this case we pick one of our default responses (what we say when
-        // we cannot think of anything else to say...)
         return pickDefaultResponse();
     }
 
@@ -168,9 +166,16 @@ public class Responder
      */
     private String pickDefaultResponse()
     {
-        // Pick a random number for the index in the default response list.
-        // The number will be between 0 (inclusive) and the size of the list (exclusive).
         int index = randomGenerator.nextInt(defaultResponses.size());
         return defaultResponses.get(index);
+    }
+
+    /**
+     * Accessor for the responseMap
+     * @return The map of keywords to responses
+     */
+    public HashMap<String, String> getResponseMap()
+    {
+        return responseMap;
     }
 }

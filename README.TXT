@@ -27,3 +27,10 @@ Then start describing your problem by typing in the terminal window.
 
 The purpose of this project is to demonstrate and study library classes, such 
 as ArrayList, HashMap, HashSet, and Random.
+
+
+Answers
+
+43. The putIfAbsent method of a HashMap adds a key-value pair only if the key is not already in the map. If the key exists, it does nothing and keeps the existing value.
+
+44. 

@@ -31,4 +31,30 @@ public class WordCounter
             counts.put(word, counter + 1);
         }
     }
+
+    /**
+     * Print the usage count of each word.
+     */
+    public void printWordCounts()
+    {
+        System.out.println("Word usage counts:");
+        for (String word : counts.keySet()) {
+            System.out.println(word + ": " + counts.get(word));
+        }
+    }
+
+    /**
+     * Print the counts of words that are NOT keys in the responder's responseMap.
+     * @param responder The Responder instance to check against
+     */
+    public void printCountsNotInResponder(Responder responder)
+    {
+        HashMap<String, String> responses = responder.getResponseMap();
+        System.out.println("Counts for words not in responseMap:");
+        for (String word : counts.keySet()) {
+            if (!responses.containsKey(word)) {
+                System.out.println(word + ": " + counts.get(word));
+            }
+        }
+    }
 }
